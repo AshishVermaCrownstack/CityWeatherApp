@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, TextInput, View} from 'react-native';
+import {FlatList, TextInput, View} from 'react-native';
 import React from 'react';
 import Navbar from '../components/Navbar';
 import {TextConstants} from '../utils/Constants';
@@ -146,7 +146,7 @@ const CitySelection = () => {
   return (
     <View style={GlobalStyle.container}>
       <Navbar title={TextConstants.changeCity} showBack />
-      <View style={{marginTop: 12, paddingHorizontal: 16, flex: 1}}>
+      <View style={{marginTop: 20, paddingHorizontal: 16, flex: 1}}>
         <TextInput
           style={GlobalStyle.searchInput}
           placeholder={TextConstants.searchCity}
@@ -165,5 +165,3 @@ const CitySelection = () => {
 };
 
 export default CitySelection;
-
-const styles = StyleSheet.create({});

@@ -1,6 +1,5 @@
 export type NavbarProps = {
   title?: String;
-  subTitle?: String;
   showBack?: boolean;
 };
 
@@ -14,4 +13,9 @@ export type CityRecordProps = {
     lon: number;
     lat: number;
   };
+};
+
+export type WeatherItemProps = {
+  weatherIcon: String;
+  weatherName: String;
 };

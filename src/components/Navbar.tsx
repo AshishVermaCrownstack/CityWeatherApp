@@ -1,21 +1,22 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {GlobalStyle} from '../styles/GlobalStyle';
 import {NavbarProps} from '../typings/typings';
+import {useNavigation} from '@react-navigation/native';
 
-const Navbar = ({title, subTitle, showBack}: NavbarProps) => {
+const Navbar = ({title, showBack}: NavbarProps) => {
+  const {goBack} = useNavigation();
   return (
     <View style={GlobalStyle.navContainer}>
-      <View style={GlobalStyle.row}>
+      <View style={[GlobalStyle.row]}>
         {showBack && (
-          <View style={{marginRight: 4}}>
+          <TouchableOpacity style={{marginRight: 4}} onPress={goBack}>
             <FontAwesomeIcon size={30} icon={'angle-left'} />
-          </View>
+          </TouchableOpacity>
         )}
         {title && <Text style={GlobalStyle.heading}>{title}</Text>}
       </View>
-      {subTitle && <Text style={GlobalStyle.normalText}>{subTitle}</Text>}
     </View>
   );
 };
