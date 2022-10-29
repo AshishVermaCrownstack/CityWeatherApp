@@ -6,7 +6,7 @@ export const GlobalStyle = StyleSheet.create({
     paddingHorizontal: 16,
   },
   weatherContainer: {
-    paddingVertical: 8,
+    paddingTop: 8,
     paddingHorizontal: 20,
   },
   calanderContainer: {
@@ -40,7 +40,12 @@ export const GlobalStyle = StyleSheet.create({
   normalText: {fontSize: 16},
   textSM: {fontSize: 12},
   itemSeparatorStyle: {height: 1, backgroundColor: '#E0E5E9'},
-  currentWeather: {fontSize: 18, color: '#ffffff', fontWeight: 'bold'},
+  currentWeather: {
+    fontSize: 18,
+    color: '#ffffff',
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
   selectCity: {
     fontSize: 16,
     color: '#ffffff',
@@ -51,4 +56,6 @@ export const GlobalStyle = StyleSheet.create({
     height: 44,
     marginBottom: -6,
   },
+
+  loaderStyle: {flex: 1, alignItems: 'center', justifyContent: 'center'},
 });

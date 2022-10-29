@@ -20,7 +20,8 @@ import Weather from './src/screens/Weather';
 import CitySelection from './src/screens/CitySelection';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {Route} from './src/utils/Constants';
+import {Route} from './src/utils/constants/Constants';
+import Provider from './src/context/Provider';
 
 library.add(fab, fas, far);
 
@@ -28,25 +29,27 @@ const App = () => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView
-        style={GlobalStyle.container}
-        edges={['top', 'left', 'right', 'bottom']}>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName={Route.Weather}
-            screenOptions={{
-              headerShown: false,
-            }}>
-            <Stack.Screen name={Route.Weather} component={Weather} />
-            <Stack.Screen
-              name={Route.CitySelection}
-              component={CitySelection}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <Provider>
+      <SafeAreaProvider>
+        <SafeAreaView
+          style={GlobalStyle.container}
+          edges={['top', 'left', 'right', 'bottom']}>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName={Route.Weather}
+              screenOptions={{
+                headerShown: false,
+              }}>
+              <Stack.Screen name={Route.Weather} component={Weather} />
+              <Stack.Screen
+                name={Route.CitySelection}
+                component={CitySelection}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </Provider>
   );
 };
 
