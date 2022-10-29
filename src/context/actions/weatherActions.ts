@@ -10,7 +10,7 @@ export const getWeatherList = async (
   dispatch({type: WEATHER_ACTIONS.GET_WEATHER_LIST.LOADING});
   await axios
     .get(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${weatherAppId}&exclude=current,minutely,hourly,alerts`,
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${weatherAppId}&exclude=current,minutely,hourly,alerts`,
     )
     .then(res => {
       const data = res.data;

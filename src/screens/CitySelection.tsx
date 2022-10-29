@@ -43,6 +43,20 @@ const CitySelection = ({navigation}: any) => {
     searchCity(cityDispatch, cityName);
   };
 
+  const debounce = (fn: any, wait?: number) => {
+    let timeout: number;
+    return function () {
+      var ctx = this,
+        args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        fn.apply(ctx, args);
+      }, wait || 500);
+    };
+  };
+
+  const debouncedSearch = debounce(getSearchText);
+
   const renderItem = ({item}: {item: CityRecordProps}) => {
     return (
       <TouchableOpacity
@@ -63,7 +77,7 @@ const CitySelection = ({navigation}: any) => {
       <Navbar title={TextConstants.changeCity} showBack />
       <View style={{marginTop: 20, paddingHorizontal: 16, flex: 1}}>
         <TextInput
-          onChangeText={getSearchText}
+          onChangeText={debouncedSearch}
           style={GlobalStyle.searchInput}
           placeholder={TextConstants.searchCity}
         />

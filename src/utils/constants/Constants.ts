@@ -8,4 +8,4 @@ export enum Route {
   Weather = 'Weather',
 }
 
-export const weatherAppId = '7cee505f3de47a5554c132a4f21106ad';
+export const weatherAppId = 'b3ab22a4573ea9237557b2e044f6cadc';
